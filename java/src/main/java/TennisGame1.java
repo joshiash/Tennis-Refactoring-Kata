@@ -19,20 +19,18 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
         if (m_score1==m_score2)
         {
-            score = getScoreForEqual();
+            return getScoreForEqual();
         }
         else if (m_score1>=4 || m_score2>=4)
         {
-            score = getScoreAdvantage();
+            return getScoreAdvantage();
         }
         else
         {
-            score = getScoreDefault(score);
+            return getScoreDefault("");
         }
-        return score;
     }
 
     private String getScoreDefault(String score) {
