@@ -19,18 +19,9 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        if (m_score1==m_score2)
-        {
-            return getScoreForEqual();
-        }
-        else if (m_score1>=4 || m_score2>=4)
-        {
-            return getScoreAdvantage();
-        }
-        else
-        {
-            return getScoreDefault("");
-        }
+        if (m_score1==m_score2)  return getScoreForEqual();
+        if (m_score1>=4 || m_score2>=4) return getScoreAdvantage();
+        return getScoreDefault("");
     }
 
     private String getScoreDefault(String score) {
