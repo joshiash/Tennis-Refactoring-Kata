@@ -21,11 +21,12 @@ public class TennisGame1 implements TennisGame {
     public String getScore() {
         if (m_score1==m_score2)  return getScoreForEqual();
         if (m_score1>=4 || m_score2>=4) return getScoreAdvantage();
-        return getScoreDefault("");
+        return getScoreDefault();
     }
 
-    private String getScoreDefault(String score) {
+    private String getScoreDefault() {
         int tempScore = 0;
+        String score = null;
         for (int i = 1; i<3; i++)
         {
             if (i==1) tempScore = m_score1;
