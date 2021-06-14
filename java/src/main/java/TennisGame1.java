@@ -26,28 +26,28 @@ public class TennisGame1 implements TennisGame {
 
     private String getScoreDefault() {
         int tempScore = 0;
-        StringBuilder score = new StringBuilder();
-        for (int i = 1; i<3; i++)
-        {
-            if (i==1) tempScore = m_score1;
-            else { score.append("-"); tempScore = m_score2;}
-            switch(tempScore)
-            {
-                case 0:
-                    score.append("Love");
-                    break;
-                case 1:
-                    score.append("Fifteen");
-                    break;
-                case 2:
-                    score.append("Thirty");
-                    break;
-                case 3:
-                    score.append("Forty");
-                    break;
-            }
+        String score = "";
+        tempScore = m_score1;
+        score += getScore(tempScore);
+        score += "-";
+        tempScore = m_score2;
+        score += getScore(tempScore);
+        return score;
+    }
+
+    private String getScore(int tempScore) {
+        switch (tempScore) {
+            case 0:
+                return "Love";
+            case 1:
+                return  "Fifteen";
+            case 2:
+               return  "Thirty";
+            case 3:
+                return "Forty";
+            default:
+                return "";
         }
-        return score.toString();
     }
 
     private String getScoreAdvantage() {
