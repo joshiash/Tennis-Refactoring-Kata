@@ -25,13 +25,10 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreDefault() {
-        int tempScore = 0;
         String score = "";
-        tempScore = m_score1;
-        score += getScore(tempScore);
+        score += getScore(m_score1);
         score += "-";
-        tempScore = m_score2;
-        score += getScore(tempScore);
+        score += getScore(m_score2);
         return score;
     }
 
