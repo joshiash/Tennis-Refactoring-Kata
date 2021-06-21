@@ -35,10 +35,14 @@ public class TennisGame1 implements TennisGame {
 
     private String getScoreAdvantage() {
         int minusResult = m_score1-m_score2;
-        if (minusResult==1) return "Advantage player1";
-        if (minusResult ==-1) return "Advantage player2";
-        if (minusResult>=2) return "Win for player1";
-        return "Win for player2";
+        String player1 = "player1";
+        String player2 = "player2";
+        String winFor = "Win for ";
+        String advantage = "Advantage ";
+        if (minusResult==1) return advantage + player1;
+        if (minusResult ==-1) return advantage + player2;
+        if (minusResult>=2) return winFor + player1;
+        return winFor + player2;
     }
 
     private String getScoreForEqual(final int tempScore, final String postfix, final String defaultScoreText) {
