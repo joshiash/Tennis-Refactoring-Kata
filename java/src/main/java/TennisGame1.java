@@ -1,3 +1,4 @@
+import java.util.Map;
 
 public class TennisGame1 implements TennisGame {
     
@@ -35,14 +36,10 @@ public class TennisGame1 implements TennisGame {
 
     private String getScoreAdvantage() {
         int minusResult = m_score1-m_score2;
-        String player1 = "player1";
-        String player2 = "player2";
-        String winFor = "Win for ";
-        String advantage = "Advantage ";
-        if (minusResult==1) return advantage + player1;
-        if (minusResult ==-1) return advantage + player2;
-        if (minusResult>=2) return winFor + player1;
-        return winFor + player2;
+        String player = (minusResult > 0) ? "player1" : "player2";
+        String winOrAdvantage = (Math.abs(minusResult) == 1) ? "Advantage " : "Win for ";
+
+        return winOrAdvantage + player;
     }
 
     private String getScoreForEqual(final int tempScore, final String postfix, final String defaultScoreText) {
