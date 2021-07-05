@@ -4,8 +4,7 @@ public class TennisGame2 implements TennisGame
     public int P1point = 0;
     public int P2point = 0;
     
-    public String P1res = "";
-    public String P2res = "";
+
     private String player1Name;
     private String player2Name;
 
@@ -15,6 +14,9 @@ public class TennisGame2 implements TennisGame
     }
 
     public String getScore(){
+
+         String P1res = "";
+         String P2res = "";
         String score = "";
         if (P1point == P2point && P1point < 4)
         {
