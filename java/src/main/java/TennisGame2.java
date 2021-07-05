@@ -20,8 +20,9 @@ public class TennisGame2 implements TennisGame
 
         String score = getScoreEqual();
 
-        score = getScoreDuece();
-
+        if (P1point==P2point && P1point>=3)
+            score = "Deuce";
+        
         if (P1point > 0 && P2point==0)
         {
             if (P1point==1)
@@ -90,13 +91,6 @@ public class TennisGame2 implements TennisGame
         {
             score = "Win for player2";
         }
-        return score;
-    }
-
-    private String getScoreDuece() {
-        String score = "";
-        if (P1point==P2point && P1point>=3)
-            score = "Deuce";
         return score;
     }
 
