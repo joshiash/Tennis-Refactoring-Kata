@@ -33,26 +33,16 @@ public class TennisGame2 implements TennisGame
         
         else if (p1Point > p2Point && p1Point < 4)
         {
-            if (p1Point ==2)
-                P1res="Thirty";
-            else if (p1Point ==3)
-                P1res="Forty";
-            if (p2Point ==1)
-                P2res="Fifteen";
-            else if (p2Point ==2)
-                P2res="Thirty";
+            P1res = getString(p1Point);
+            P2res = getString2(p2Point);
+
             score = P1res + "-" + P2res;
         }
         else if (p2Point > p1Point && p2Point < 4)
         {
-            if (p2Point ==2)
-                P2res="Thirty";
-            else if (p2Point ==3)
-                P2res="Forty";
-            if (p1Point ==1)
-                P1res="Fifteen";
-            else if (p1Point ==2)
-                P1res="Thirty";
+            P2res = getString(p2Point);
+            P1res = getString2(p1Point);
+
             score = P1res + "-" + P2res;
         }
         
@@ -75,6 +65,24 @@ public class TennisGame2 implements TennisGame
             score = "Win for player2";
         }
         return score;
+    }
+
+    private String getString2(int point) {
+        String p2res = "";
+        if (point ==1)
+            p2res ="Fifteen";
+        else if (point ==2)
+            p2res ="Thirty";
+        return p2res;
+    }
+
+    private String getString(int point) {
+        String p1PointRes = "";
+        if (point ==2)
+            p1PointRes ="Thirty";
+        else if (point ==3)
+            p1PointRes ="Forty";
+        return p1PointRes;
     }
 
     private String getPoint(int p) {
