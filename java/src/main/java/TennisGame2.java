@@ -1,8 +1,8 @@
 
 public class TennisGame2 implements TennisGame
 {
-    private int P1point = 0;
-    private int P2point = 0;
+    private int P1point;
+    private int P2point;
     
 
     private String player1Name;
