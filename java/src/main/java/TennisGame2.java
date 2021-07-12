@@ -35,11 +35,11 @@ public class TennisGame2 implements TennisGame
         {
             if (p1Point ==2)
                 P1res="Thirty";
-            if (p1Point ==3)
+            else if (p1Point ==3)
                 P1res="Forty";
             if (p2Point ==1)
                 P2res="Fifteen";
-            if (p2Point ==2)
+            else if (p2Point ==2)
                 P2res="Thirty";
             score = P1res + "-" + P2res;
         }
@@ -47,11 +47,11 @@ public class TennisGame2 implements TennisGame
         {
             if (p2Point ==2)
                 P2res="Thirty";
-            if (p2Point ==3)
+            else if (p2Point ==3)
                 P2res="Forty";
             if (p1Point ==1)
                 P1res="Fifteen";
-            if (p1Point ==2)
+            else if (p1Point ==2)
                 P1res="Thirty";
             score = P1res + "-" + P2res;
         }
