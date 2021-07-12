@@ -25,10 +25,10 @@ public class TennisGame2 implements TennisGame
         
         if (p1Point > 0 && p2Point ==0)
         {
-            score =getString(p1Point) + "-" + "Love";
+            score = getPoint(p1Point) + "-" + "Love";
         } else if (p2Point > 0 && p1Point ==0)
         {
-            score = "Love" + "-" + getString(p2Point);
+            score = "Love" + "-" + getPoint(p2Point);
         }
         
         else if (p1Point > p2Point && p1Point < 4)
@@ -77,7 +77,7 @@ public class TennisGame2 implements TennisGame
         return score;
     }
 
-    private String getString(int p) {
+    private String getPoint(int p) {
         if (p==1)
             return  "Fifteen";
         if (p==2)
