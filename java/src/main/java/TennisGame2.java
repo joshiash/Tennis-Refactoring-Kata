@@ -14,15 +14,8 @@ public class TennisGame2 implements TennisGame
     }
 
     public String getScore(){
-        String score = "";
+        String score = getScoreForEqual(P1point, P2point);
 
-        if (P1point == P2point && P1point < 4)
-        {
-            score = getScoreText(P1point) + "-All";
-        }
-        if (P1point==P2point && P1point>=3)
-            score = "Deuce";
-        
         if (P1point > 0 && P2point==0)
         {
 
@@ -63,6 +56,18 @@ public class TennisGame2 implements TennisGame
         {
             score = "Win for player2";
         }
+        return score;
+    }
+
+    private static String getScoreForEqual(final int p1Point, final int p2Point) {
+        String score = "";
+
+        if (p1Point == p2Point && p1Point < 4)
+        {
+            score = getScoreText(p1Point) + "-All";
+        }
+        if (p1Point == p2Point && p1Point >=3)
+            score = "Deuce";
         return score;
     }
 
