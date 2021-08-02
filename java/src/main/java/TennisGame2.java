@@ -14,30 +14,13 @@ public class TennisGame2 implements TennisGame
     }
 
     public String getScore(){
-        String score = getScoreForEqual(P1point, P2point);
+        String score = "";
 
-        if (P1point > 0 && P2point==0)
-        {
-
-            score = getScoreText(P1point) + "-" + getScoreText(P2point);
+        if (P1point == P2point) {
+            return getScoreForEqual(P1point);
         }
-        if (P2point > 0 && P1point==0)
-        {
+        score = getScore(P1point, P2point);
 
-            score = getScoreText(P1point) + "-" + getScoreText(P2point);
-        }
-        
-        if (P1point>P2point && P1point < 4)
-        {
-
-            score = getScoreText(P1point) + "-" + getScoreText(P2point);
-        }
-        if (P2point>P1point && P2point < 4)
-        {
-
-            score = getScoreText(P1point) + "-" + getScoreText(P2point);
-        }
-        
         if (P1point > P2point && P2point >= 3)
         {
             score = "Advantage player1";
@@ -59,15 +42,41 @@ public class TennisGame2 implements TennisGame
         return score;
     }
 
-    private static String getScoreForEqual(final int p1Point, final int p2Point) {
+    private static String getScoreForEqual(final int point) {
         String score = "";
-
-        if (p1Point == p2Point && p1Point < 4)
-        {
-            score = getScoreText(p1Point) + "-All";
+        if (point < 4) {
+            score = getScoreText(point) + "-All";
         }
-        if (p1Point == p2Point && p1Point >=3)
+        if (point >= 3) {
             score = "Deuce";
+        }
+
+        return score;
+    }
+
+    private static String getScore(final int p1Point, final int p2Point) {
+        String score = "";
+        if (p1Point > 0 && p2Point==0)
+        {
+
+            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
+        }
+        if (p2Point > 0 && p1Point==0)
+        {
+
+            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
+        }
+
+        if (p1Point>p2Point && p1Point < 4)
+        {
+
+            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
+        }
+        if (p2Point>p1Point && p2Point < 4)
+        {
+
+            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
+        }
         return score;
     }
 
