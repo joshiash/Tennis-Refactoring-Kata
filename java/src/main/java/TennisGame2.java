@@ -12,15 +12,13 @@ public class TennisGame2 implements TennisGame
         this.player2Name = player2Name;
     }
     public String getScore(){
-        String score = "";
         if (P1point == P2point) {
             return getScoreForEqual(P1point);
         }
-        score = getScore(P1point, P2point);
         if(P1point >= 4 || P2point >= 4) {
-            score = getScoreAdvantageOrWin(P1point, P2point);
+            return getScoreAdvantageOrWin(P1point, P2point);
         }
-        return score;
+        return getScore(P1point, P2point);
     }
 
     private static String getScoreAdvantageOrWin(int p1point, int p2point) {
