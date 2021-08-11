@@ -16,7 +16,7 @@ public class TennisGame2 implements TennisGame
         if(P1point >= 4 || P2point >= 4) {
             return getScoreAdvantageOrWin(P1point, P2point);
         }
-        return getScore(P1point, P2point);
+        return getScoreText(P1point) + "-" + getScoreText(P2point);
     }
 
     private String getScoreAdvantageOrWin(int p1point, int p2point) {
@@ -31,26 +31,7 @@ public class TennisGame2 implements TennisGame
         }
         return getScoreText(point) + "-All";
     }
-    private static String getScore(final int p1Point, final int p2Point) {
-        String score = "";
-        if (p1Point > 0 && p2Point==0)
-        {
-            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
-        }
-        if (p2Point > 0 && p1Point==0)
-        {
-            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
-        }
-        if (p1Point>p2Point && p1Point < 4)
-        {
-            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
-        }
-        if (p2Point>p1Point && p2Point < 4)
-        {
-            score = getScoreText(p1Point) + "-" + getScoreText(p2Point);
-        }
-        return score;
-    }
+
     private static String getScoreText(int point) {
         String[] score = {"Love", "Fifteen", "Thirty", "Forty"};
         return score[point];
