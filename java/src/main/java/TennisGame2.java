@@ -24,11 +24,11 @@ public class TennisGame2 implements TennisGame
         {
             score = "Advantage player2";
         }
-        if (P1point>=4 && P2point>=0 && diff >=2)
+        if (P1point>=4 && diff >=2)
         {
             score = "Win for player1";
         }
-        if (P2point>=4 && P1point>=0 && -diff >=2)
+        if (P2point>=4 && -diff >=2)
         {
             score = "Win for player2";
         }
