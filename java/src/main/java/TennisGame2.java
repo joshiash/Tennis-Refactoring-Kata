@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
 public class TennisGame2 implements TennisGame
 {
     public int P1point = 0;
@@ -15,25 +17,21 @@ public class TennisGame2 implements TennisGame
             return getScoreForEqual(P1point);
         }
         score = getScore(P1point, P2point);
-        final int pointDiff = P1point - P2point;
-        if (pointDiff > 0 && P2point >= 3)
-        {
-            score = "Advantage player1";
-        }
-        if (-pointDiff > 0 && P1point >= 3)
-        {
-            score = "Advantage player2";
-        }
-        if (P1point>=4 && pointDiff >=2)
-        {
-            score = "Win for player1";
-        }
-        if (P2point>=4 && -pointDiff >=2)
-        {
-            score = "Win for player2";
+        if(P1point >= 4 || P2point >= 4) {
+            score = getScoreAdvantageOrWin(P1point, P2point);
         }
         return score;
     }
+
+    private static String getScoreAdvantageOrWin(int p1point, int p2point) {
+        String score;
+        final int pointDiff = p1point - p2point;
+        String player = pointDiff > 0 ? "player1" : "player2";
+        String text = Math.abs(pointDiff) >= 2 ? "Win for " : "Advantage ";
+        score = text + player;
+        return score;
+    }
+
     private static String getScoreForEqual(final int point) {
         String score = "";
         if (point < 4) {
