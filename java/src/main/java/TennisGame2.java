@@ -27,16 +27,11 @@ public class TennisGame2 implements TennisGame
         String text = Math.abs(pointDiff) >= 2 ? "Win for " : "Advantage ";
         return text + player;
     }
-
     private static String getScoreForEqual(final int point) {
-        String score = "";
-        if (point < 4) {
-            score = getScoreText(point) + "-All";
-        }
         if (point >= 3) {
-            score = "Deuce";
+            return "Deuce";
         }
-        return score;
+        return getScoreText(point) + "-All";
     }
     private static String getScore(final int p1Point, final int p2Point) {
         String score = "";
