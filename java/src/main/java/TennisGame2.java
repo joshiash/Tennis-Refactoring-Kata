@@ -19,9 +19,9 @@ public class TennisGame2 implements TennisGame
         return getScore(P1point, P2point);
     }
 
-    private static String getScoreAdvantageOrWin(int p1point, int p2point) {
+    private String getScoreAdvantageOrWin(int p1point, int p2point) {
         final int pointDiff = p1point - p2point;
-        String player = pointDiff > 0 ? "player1" : "player2";
+        String player = pointDiff > 0 ? player1Name : player2Name;
         String text = Math.abs(pointDiff) >= 2 ? "Win for " : "Advantage ";
         return text + player;
     }
@@ -56,7 +56,7 @@ public class TennisGame2 implements TennisGame
         return score[point];
     }
     public void wonPoint(String player) {
-        if (player == "player1")
+        if (player == player1Name)
             P1point++;
         else
             P2point++;
