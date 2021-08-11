@@ -54,16 +54,8 @@ public class TennisGame2 implements TennisGame
         return score;
     }
     private static String getScoreText(int point) {
-        String score = "";
-        if (point ==0)
-            score = "Love";
-        if (point ==1)
-            score = "Fifteen";
-        if (point ==2)
-            score = "Thirty";
-        if (point ==3)
-            score = "Forty";
-        return score;
+        String[] score = {"Love", "Fifteen", "Thirty", "Forty"};
+        return score[point];
     }
     public void wonPoint(String player) {
         if (player == "player1")
