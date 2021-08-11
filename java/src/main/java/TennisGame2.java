@@ -22,12 +22,10 @@ public class TennisGame2 implements TennisGame
     }
 
     private static String getScoreAdvantageOrWin(int p1point, int p2point) {
-        String score;
         final int pointDiff = p1point - p2point;
         String player = pointDiff > 0 ? "player1" : "player2";
         String text = Math.abs(pointDiff) >= 2 ? "Win for " : "Advantage ";
-        score = text + player;
-        return score;
+        return text + player;
     }
 
     private static String getScoreForEqual(final int point) {
