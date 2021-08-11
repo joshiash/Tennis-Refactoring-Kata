@@ -15,20 +15,20 @@ public class TennisGame2 implements TennisGame
             return getScoreForEqual(P1point);
         }
         score = getScore(P1point, P2point);
-        final int diff = P1point - P2point;
-        if (diff > 0 && P2point >= 3)
+        final int pointDiff = P1point - P2point;
+        if (pointDiff > 0 && P2point >= 3)
         {
             score = "Advantage player1";
         }
-        if (-diff > 0 && P1point >= 3)
+        if (-pointDiff > 0 && P1point >= 3)
         {
             score = "Advantage player2";
         }
-        if (P1point>=4 && diff >=2)
+        if (P1point>=4 && pointDiff >=2)
         {
             score = "Win for player1";
         }
-        if (P2point>=4 && -diff >=2)
+        if (P2point>=4 && -pointDiff >=2)
         {
             score = "Win for player2";
         }
