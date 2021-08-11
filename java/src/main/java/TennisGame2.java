@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.operations.Mod;
-
 public class TennisGame2 implements TennisGame
 {
     public int P1point = 0;
