@@ -2,27 +2,29 @@ import static java.lang.Math.abs;
 
 public class TennisGame2 implements TennisGame
 {
-    public int P1point = 0;
-    public int P2point = 0;
+    private int p1Point;
+    private int p2Point;
 
     final private String player1Name;
     final private String player2Name;
+    private static final String[] SCORE = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+
     public TennisGame2(String player1Name, String player2Name) {
         this.player1Name = player1Name;
         this.player2Name = player2Name;
     }
     public String getScore(){
-        if (P1point == P2point) {
-            return getScoreForEqual(P1point);
+        if (p1Point == p2Point) {
+            return getScoreForEqual(p1Point);
         }
-        if(P1point >= 4 || P2point >= 4) {
-            return getScoreAdvantageOrWin(P1point, P2point);
+        if(p1Point >= 4 || p2Point >= 4) {
+            return getScoreAdvantageOrWin(p1Point, p2Point);
         }
-        return getScoreText(P1point) + "-" + getScoreText(P2point);
+        return SCORE[p1Point] + "-" + SCORE[p2Point];
     }
 
-    private String getScoreAdvantageOrWin(int p1point, int p2point) {
-        final int pointDiff = p1point - p2point;
+    private String getScoreAdvantageOrWin(int p1Point, int p2Point) {
+        final int pointDiff = p1Point - p2Point;
         String player = pointDiff > 0 ? player1Name : player2Name;
         String text = abs(pointDiff) >= 2 ? "Win for " : "Advantage ";
         return text + player;
@@ -31,17 +33,13 @@ public class TennisGame2 implements TennisGame
         if (point >= 3) {
             return "Deuce";
         }
-        return getScoreText(point) + "-All";
+        return SCORE[point] + "-All";
     }
 
-    private static String getScoreText(int point) {
-        String[] score = {"Love", "Fifteen", "Thirty", "Forty"};
-        return score[point];
-    }
     public void wonPoint(String player) {
         if (player == player1Name)
-            P1point++;
+            p1Point++;
         else
-            P2point++;
+            p2Point++;
     }
 }
