@@ -5,26 +5,29 @@ public class TennisGame3 implements TennisGame {
     private static final String[] scoreText = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
     private int p2;
     private int p1;
-    private String p1N;
-    private String p2N;
+    private final String player1;
+    private final String player2;
 
     public TennisGame3(String p1N, String p2N) {
-        this.p1N = p1N;
-        this.p2N = p2N;
+        this.player1 = p1N;
+        this.player2 = p2N;
     }
 
     public String getScore() {
-        if (isGameOn()) {
-            return (p1 == p2) ? scoreText[p1] + "-All" : scoreText[p1] + "-" + scoreText[p2];
-        }
+        if (isGameOn()) return getGameOnScore();
 
         if (p1 == p2) return "Deuce";
 
         return getScoreWinOrAdv();
     }
 
+    private String getGameOnScore() {
+        String gameScore = scoreText[p1] + "-" + scoreText[p2];
+        return p1 == p2 ? scoreText[p1] + "-All" : gameScore;
+    }
+
     private String getScoreWinOrAdv() {
-        String playerAhead = p1 > p2 ? p1N : p2N;
+        String playerAhead = p1 > p2 ? player1 : player2;
         int scoreDiff = p1 - p2;
         return abs(scoreDiff) == 1 ? "Advantage " + playerAhead : "Win for " + playerAhead;
     }
