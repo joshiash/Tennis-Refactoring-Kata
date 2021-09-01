@@ -13,16 +13,20 @@ public class TennisGame3 implements TennisGame {
     }
 
     public String getScore() {
-        if (isGameOn(p1, p2)) {
+        if (isGameOn()) {
             return (p1 == p2) ? scoreText[p1] + "-All" : scoreText[p1] + "-" + scoreText[p2];
         } else {
             if (p1 == p2) return "Deuce";
-            String playerAhead = p1 > p2 ? p1N : p2N;
-            return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + playerAhead : "Win for " + playerAhead;
+            return getScoreWinOrAdv(p1, p2);
         }
     }
 
-    private static boolean isGameOn(final int p1, final int p2) {
+    private String getScoreWinOrAdv(final int p1, final int p2) {
+        String playerAhead = p1 > p2 ? p1N : p2N;
+        return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + playerAhead : "Win for " + playerAhead;
+    }
+
+    private boolean isGameOn() {
         return p1 < 4 && p2 < 4 && !(p1 + p2 == 6);
     }
 
