@@ -17,8 +17,8 @@ public class TennisGame3 implements TennisGame {
             return (p1 == p2) ? scoreText[p1] + "-All" : scoreText[p1] + "-" + scoreText[p2];
         } else {
             if (p1 == p2) return "Deuce";
-            String s = p1 > p2 ? p1N : p2N;
-            return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + s : "Win for " + s;
+            String playerAhead = p1 > p2 ? p1N : p2N;
+            return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + playerAhead : "Win for " + playerAhead;
         }
     }
 
