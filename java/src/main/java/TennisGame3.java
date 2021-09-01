@@ -1,3 +1,4 @@
+import static java.lang.Math.*;
 
 public class TennisGame3 implements TennisGame {
 
@@ -23,7 +24,8 @@ public class TennisGame3 implements TennisGame {
 
     private String getScoreWinOrAdv() {
         String playerAhead = p1 > p2 ? p1N : p2N;
-        return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + playerAhead : "Win for " + playerAhead;
+        int scoreDiff = p1 - p2;
+        return abs(scoreDiff) == 1 ? "Advantage " + playerAhead : "Win for " + playerAhead;
     }
 
     private boolean isGameOn() {
