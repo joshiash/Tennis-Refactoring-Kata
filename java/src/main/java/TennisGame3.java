@@ -19,6 +19,7 @@ public class TennisGame3 implements TennisGame {
         }
 
         if (p1 == p2) return "Deuce";
+
         return getScoreWinOrAdv();
     }
 
@@ -29,7 +30,7 @@ public class TennisGame3 implements TennisGame {
     }
 
     private boolean isGameOn() {
-        return p1 < 4 && p2 < 4 && !(p1 + p2 == 6);
+        return p1 < 4 && p2 < 4 && p1 + p2 != 6;
     }
 
     public void wonPoint(String playerName) {
