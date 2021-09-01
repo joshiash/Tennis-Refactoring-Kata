@@ -8,9 +8,9 @@ public class TennisGame3 implements TennisGame {
     private final String player1;
     private final String player2;
 
-    public TennisGame3(String p1N, String p2N) {
-        this.player1 = p1N;
-        this.player2 = p2N;
+    public TennisGame3(String player1, String player2) {
+        this.player1 = player1;
+        this.player2 = player2;
     }
 
     public String getScore() {
