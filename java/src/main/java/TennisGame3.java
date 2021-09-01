@@ -16,10 +16,10 @@ public class TennisGame3 implements TennisGame {
     public String getScore() {
         if (isGameOn()) {
             return (p1 == p2) ? scoreText[p1] + "-All" : scoreText[p1] + "-" + scoreText[p2];
-        } else {
-            if (p1 == p2) return "Deuce";
-            return getScoreWinOrAdv();
         }
+
+        if (p1 == p2) return "Deuce";
+        return getScoreWinOrAdv();
     }
 
     private String getScoreWinOrAdv() {
