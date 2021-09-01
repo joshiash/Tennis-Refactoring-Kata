@@ -17,11 +17,11 @@ public class TennisGame3 implements TennisGame {
             return (p1 == p2) ? scoreText[p1] + "-All" : scoreText[p1] + "-" + scoreText[p2];
         } else {
             if (p1 == p2) return "Deuce";
-            return getScoreWinOrAdv(p1, p2);
+            return getScoreWinOrAdv();
         }
     }
 
-    private String getScoreWinOrAdv(final int p1, final int p2) {
+    private String getScoreWinOrAdv() {
         String playerAhead = p1 > p2 ? p1N : p2N;
         return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + playerAhead : "Win for " + playerAhead;
     }
