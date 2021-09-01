@@ -18,7 +18,23 @@ public class TennisGame3 implements TennisGame {
 
         if (p1 == p2) return "Deuce";
 
-        return getScoreWinOrAdv();
+        return getScoreWinOrAdv(getPlayerAhead(), getScoreDiff());
+    }
+
+    private String getScoreWinOrAdv(final String playerAhead, final int scoreDiff) {
+        return abs(scoreDiff) == 1 ? "Advantage " + playerAhead : "Win for " + playerAhead;
+    }
+
+    private int getScoreDiff() {
+        return p1 - p2;
+    }
+
+    private String getPlayerAhead() {
+        return p1 > p2 ? player1 : player2;
+    }
+
+    private boolean isGameOn() {
+        return p1 < 4 && p2 < 4 && p1 + p2 != 6;
     }
 
     private String getGameOnScore() {
@@ -26,15 +42,6 @@ public class TennisGame3 implements TennisGame {
         return p1 == p2 ? scoreText[p1] + "-All" : gameScore;
     }
 
-    private String getScoreWinOrAdv() {
-        String playerAhead = p1 > p2 ? player1 : player2;
-        int scoreDiff = p1 - p2;
-        return abs(scoreDiff) == 1 ? "Advantage " + playerAhead : "Win for " + playerAhead;
-    }
-
-    private boolean isGameOn() {
-        return p1 < 4 && p2 < 4 && p1 + p2 != 6;
-    }
 
     public void wonPoint(String playerName) {
         if (playerName == "player1")
